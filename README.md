@@ -1,4 +1,0 @@
-treeStruct
-==========
-
-hierarchical structure
