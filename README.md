@@ -1,0 +1,4 @@
+treeStruct
+==========
+
+hierarchical structure
