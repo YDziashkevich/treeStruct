@@ -20,6 +20,7 @@ class Form {
         if($array!=null && $array["add"]=="add"){
             $this->parent=$array["parent"];
             $page=str_replace("{{CONTENT}}",$this->addElement,$this->mainPage);
+            $page=str_replace("{{parentElement}}",$this->parent,$page);
             return $page;
         }else{
             $page=str_replace("{{CONTENT}}",$this->mainContent,$this->mainPage);
@@ -31,6 +32,7 @@ class Form {
         var_dump($this->parent);
         $element=array();
         $element["level"]=$this->parent;
+		(isset($_POST["parentElement"]))?$element["level"]=$_POST["parentElement"]:" ";
         (isset($_POST["nameElement"]))?$element["nameElement"]=$_POST["nameElement"]:$element["nameElement"]=" ";
         (isset($_POST["discriptionElement"]))?$element["discriptionElement"]=$_POST["discriptionElement"]:$element["discriptionElement"]=" ";
         return $element;
