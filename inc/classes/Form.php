@@ -4,6 +4,7 @@ class Form {
     private $mainPage;
     private $addElement;
     private $mainContent;
+    private $parent;
 
     public function __construct(){
         $this->mainPage=file_get_contents("./tpl/page.html");
@@ -11,12 +12,13 @@ class Form {
         $this->addElement=file_get_contents("./tpl/add.html");
     }
 
-    public function putSelect($element=array()){
 
-    }
 
-    public function getPage($pageContent="main"){
-        if($pageContent=="add"){
+
+    public function getPage($array=array()){
+        var_dump($array);
+        if($array!=null && $array["add"]=="add"){
+            $this->parent=$array["parent"];
             $page=str_replace("{{CONTENT}}",$this->addElement,$this->mainPage);
             return $page;
         }else{
@@ -24,6 +26,16 @@ class Form {
             return $page;
         }
     }
+
+    public function getData($level){
+        var_dump($this->parent);
+        $element=array();
+        $element["level"]=$this->parent;
+        (isset($_POST["nameElement"]))?$element["nameElement"]=$_POST["nameElement"]:$element["nameElement"]=" ";
+        (isset($_POST["discriptionElement"]))?$element["discriptionElement"]=$_POST["discriptionElement"]:$element["discriptionElement"]=" ";
+        return $element;
+    }
+
 
 
 

@@ -26,7 +26,6 @@ class Storage {
 
     public function putElement($element=array()){
 
-
         $insertElement = $this->db->prepare('INSERT INTO st_elements (`name` ,`description` ,`level`) VALUES (:name, :description, :level');
         $insertElement->execute(array(':name' => $element["name"], ':description' => $element["description"], ':level' => $element["level"]));
 
