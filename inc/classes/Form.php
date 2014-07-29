@@ -28,13 +28,11 @@ class Form {
         }
     }
 
-    public function getData($level){
-        var_dump($this->parent);
+    public function getData(){
         $element=array();
-        $element["level"]=$this->parent;
-		(isset($_POST["parentElement"]))?$element["level"]=$_POST["parentElement"]:" ";
-        (isset($_POST["nameElement"]))?$element["nameElement"]=$_POST["nameElement"]:$element["nameElement"]=" ";
-        (isset($_POST["discriptionElement"]))?$element["discriptionElement"]=$_POST["discriptionElement"]:$element["discriptionElement"]=" ";
+        $element["level"]=(isset($_POST["parentElement"]))?$_POST["parentElement"]:" ";
+        $element["nameElement"]=(isset($_POST["nameElement"]))?$_POST["nameElement"]:" ";
+        $element["discriptionElement"]=(isset($_POST["discriptionElement"]))?$_POST["discriptionElement"]:" ";
         return $element;
     }
 
