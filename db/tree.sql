@@ -24,7 +24,7 @@ CREATE TABLE `st_elements` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `description` text,
-  `level` int(10) unsigned NOT NULL,
+  `level` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -37,8 +37,12 @@ DROP TABLE IF EXISTS `st_parent`;
 CREATE TABLE `st_parent` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `idName` int(10) unsigned NOT NULL,
-  `idParent` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`id`)
+  `idParent` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `nameChild_idChild` (`idName`),
+  KEY `nameParent_idParent` (`idParent`),
+  CONSTRAINT `nameChild_idChild` FOREIGN KEY (`idName`) REFERENCES `st_elements` (`id`),
+  CONSTRAINT `nameParent_idParent` FOREIGN KEY (`idParent`) REFERENCES `st_elements` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `st_parent` */

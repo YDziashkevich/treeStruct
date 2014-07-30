@@ -53,13 +53,13 @@
       <file leaf-file-name="Storage.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/inc/classes/Storage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="0" selection-start="563" selection-end="563" vertical-scroll-proportion="0.35920176" vertical-offset="16" max-vertical-offset="952">
+            <state line="38" column="10" selection-start="1269" selection-end="1269" vertical-scroll-proportion="0.6042129" vertical-offset="16" max-vertical-offset="952">
               <folding>
-                <marker date="1406717375309" expanded="true" signature="911:1017" placeholder="INSERT INTO ..." />
-                <marker date="1406717375309" expanded="true" signature="1331:1402" placeholder="INSERT INTO ..." />
-                <marker date="1406717375309" expanded="true" signature="1596:1647" placeholder="SELECT * FRO..st_elements..." />
-                <marker date="1406717375309" expanded="true" signature="1602:1622" placeholder="INSERT INTO ..." />
-                <marker date="1406717375309" expanded="true" signature="1867:1892" placeholder="SELECT * FRO..st_elements..." />
+                <marker date="1406718099109" expanded="true" signature="915:1021" placeholder="INSERT INTO ..." />
+                <marker date="1406718099109" expanded="true" signature="1337:1408" placeholder="INSERT INTO ..." />
+                <marker date="1406718099109" expanded="true" signature="1602:1653" placeholder="SELECT * FRO..st_elements..." />
+                <marker date="1406718099109" expanded="true" signature="1608:1628" placeholder="INSERT INTO ..." />
+                <marker date="1406718099109" expanded="true" signature="1873:1898" placeholder="SELECT * FRO..st_elements..." />
               </folding>
             </state>
           </provider>
@@ -302,11 +302,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="46" selection-start="404" selection-end="404" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="765">
           <folding>
-            <marker date="1406717375309" expanded="true" signature="911:1017" placeholder="INSERT INTO ..." />
-            <marker date="1406717375309" expanded="true" signature="1331:1402" placeholder="INSERT INTO ..." />
-            <marker date="1406717375309" expanded="true" signature="1596:1647" placeholder="SELECT * FRO..st_elements..." />
-            <marker date="1406717375309" expanded="true" signature="1602:1622" placeholder="INSERT INTO ..." />
-            <marker date="1406717375309" expanded="true" signature="1867:1892" placeholder="SELECT * FRO..st_elements..." />
+            <marker date="1406718099109" expanded="true" signature="915:1021" placeholder="INSERT INTO ..." />
+            <marker date="1406718099109" expanded="true" signature="1337:1408" placeholder="INSERT INTO ..." />
+            <marker date="1406718099109" expanded="true" signature="1602:1653" placeholder="SELECT * FRO..st_elements..." />
+            <marker date="1406718099109" expanded="true" signature="1608:1628" placeholder="INSERT INTO ..." />
+            <marker date="1406718099109" expanded="true" signature="1873:1898" placeholder="SELECT * FRO..st_elements..." />
           </folding>
         </state>
       </provider>
@@ -343,11 +343,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="0" selection-start="614" selection-end="614" vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="765">
           <folding>
-            <marker date="1406717375309" expanded="true" signature="911:1017" placeholder="INSERT INTO ..." />
-            <marker date="1406717375309" expanded="true" signature="1331:1402" placeholder="INSERT INTO ..." />
-            <marker date="1406717375309" expanded="true" signature="1596:1647" placeholder="SELECT * FRO..st_elements..." />
-            <marker date="1406717375309" expanded="true" signature="1602:1622" placeholder="INSERT INTO ..." />
-            <marker date="1406717375309" expanded="true" signature="1867:1892" placeholder="SELECT * FRO..st_elements..." />
+            <marker date="1406718099109" expanded="true" signature="915:1021" placeholder="INSERT INTO ..." />
+            <marker date="1406718099109" expanded="true" signature="1337:1408" placeholder="INSERT INTO ..." />
+            <marker date="1406718099109" expanded="true" signature="1602:1653" placeholder="SELECT * FRO..st_elements..." />
+            <marker date="1406718099109" expanded="true" signature="1608:1628" placeholder="INSERT INTO ..." />
+            <marker date="1406718099109" expanded="true" signature="1873:1898" placeholder="SELECT * FRO..st_elements..." />
           </folding>
         </state>
       </provider>
@@ -403,11 +403,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="36" column="20" selection-start="1027" selection-end="1027" vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="782">
           <folding>
-            <marker date="1406717375309" expanded="true" signature="911:1017" placeholder="INSERT INTO ..." />
-            <marker date="1406717375309" expanded="true" signature="1331:1402" placeholder="INSERT INTO ..." />
-            <marker date="1406717375309" expanded="true" signature="1596:1647" placeholder="SELECT * FRO..st_elements..." />
-            <marker date="1406717375309" expanded="true" signature="1602:1622" placeholder="INSERT INTO ..." />
-            <marker date="1406717375309" expanded="true" signature="1867:1892" placeholder="SELECT * FRO..st_elements..." />
+            <marker date="1406718099109" expanded="true" signature="915:1021" placeholder="INSERT INTO ..." />
+            <marker date="1406718099109" expanded="true" signature="1337:1408" placeholder="INSERT INTO ..." />
+            <marker date="1406718099109" expanded="true" signature="1602:1653" placeholder="SELECT * FRO..st_elements..." />
+            <marker date="1406718099109" expanded="true" signature="1608:1628" placeholder="INSERT INTO ..." />
+            <marker date="1406718099109" expanded="true" signature="1873:1898" placeholder="SELECT * FRO..st_elements..." />
           </folding>
         </state>
       </provider>
@@ -492,13 +492,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/inc/classes/Storage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="0" selection-start="563" selection-end="563" vertical-scroll-proportion="0.35920176" vertical-offset="16" max-vertical-offset="952">
+        <state line="38" column="10" selection-start="1269" selection-end="1269" vertical-scroll-proportion="0.6042129" vertical-offset="16" max-vertical-offset="952">
           <folding>
-            <marker date="1406717375309" expanded="true" signature="911:1017" placeholder="INSERT INTO ..." />
-            <marker date="1406717375309" expanded="true" signature="1331:1402" placeholder="INSERT INTO ..." />
-            <marker date="1406717375309" expanded="true" signature="1596:1647" placeholder="SELECT * FRO..st_elements..." />
-            <marker date="1406717375309" expanded="true" signature="1602:1622" placeholder="INSERT INTO ..." />
-            <marker date="1406717375309" expanded="true" signature="1867:1892" placeholder="SELECT * FRO..st_elements..." />
+            <marker date="1406718099109" expanded="true" signature="915:1021" placeholder="INSERT INTO ..." />
+            <marker date="1406718099109" expanded="true" signature="1337:1408" placeholder="INSERT INTO ..." />
+            <marker date="1406718099109" expanded="true" signature="1602:1653" placeholder="SELECT * FRO..st_elements..." />
+            <marker date="1406718099109" expanded="true" signature="1608:1628" placeholder="INSERT INTO ..." />
+            <marker date="1406718099109" expanded="true" signature="1873:1898" placeholder="SELECT * FRO..st_elements..." />
           </folding>
         </state>
       </provider>
