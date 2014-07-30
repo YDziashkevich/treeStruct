@@ -33,7 +33,7 @@ class Storage {
         }
         //var_dump($parent);
         //var_dump($element);
-        $insertElement = $this->db->prepare('INSERT INTO st_elements (`name` ,`description` ,`level`) VALUES (:nameElement, :descriptionElement, :level');
+        $insertElement = $this->db->prepare('INSERT INTO st_elements (`name` ,`description` ,`level`) VALUES (:nameElement, :descriptionElement, :level)');
         $insertElement->execute(array(":nameElement"=>$element[":nameElement"], ":descriptionElement"=>$element[":descriptionElement"], ":level"=>$element[":level"]));
         $dataElement=$this->getElement($element[":nameElement"]);
         //var_dump($dataElement);
