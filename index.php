@@ -14,21 +14,23 @@ $array=array();
 if(!empty($_POST) && isset($_POST["newElement"]) && isset($_POST["parent"]) && $_POST["parent"]!=" "){
     $array["add"]="add";
     $array["parent"]=$_POST["parent"];
-
     $page=$form->getPage($array);
-
 }else{
     $page=$form->getPage();
 }
 
 if(isset($_POST["nameElement"])){
-
     foreach($form->getData($level) as $key=>$value){
         $element[$key]=$value;
     }
 }
+//var_dump($element);
+
+if(isset($element[":nameElement"]) && $element[":nameElement"]!=" "){
+    $storage->putElement($element);
+}
 
 
 
-var_dump($element);
+//var_dump($element);
 echo $page;
