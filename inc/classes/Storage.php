@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Y.Dziashkevich
- * Date: 28.07.14
- * Time: 14:37
- */
+
 
 class Storage {
 
@@ -31,11 +26,6 @@ class Storage {
         }else{
             $parent=$this->getElement($element[":parentElement"]);
         }
-<<<<<<< HEAD
-=======
-        //var_dump($parent);
-        //var_dump($element);
->>>>>>> origin/master
         $insertElement = $this->db->prepare('INSERT INTO st_elements (`name` ,`description` ,`level`) VALUES (:nameElement, :descriptionElement, :level)');
         $insertElement->execute(array(":nameElement"=>$element[":nameElement"], ":descriptionElement"=>$element[":descriptionElement"], ":level"=>$element[":level"]));
         $idElement=$this->db->lastInsertId();
