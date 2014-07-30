@@ -25,10 +25,26 @@ class Storage {
     }
 
     public function putElement($element=array()){
+        $parent=array();
+        if($element[":parentElement"]=="root"){
+            $parent["id"]=null;
+        }else{
+            $parent=$this->getElement($element[":parentElement"]);
+        }
+        var_dump($parent);
+        var_dump($element);
+        $insertElement = $this->db->prepare('INSERT INTO st_elements (`name` ,`description` ,`level`) VALUES (:nameElement, :descriptionElement, :level');
+        $insertElement->execute(array(":nameElement"=>$element[":nameElement"], ":descriptionElement"=>$element[":descriptionElement"], ":level"=>$element[":level"]));
+        $dataElement=$this->getElement($element[":nameElement"]);
+        var_dump($dataElement);
+        $insertParent = $this->db->prepare('INSERT INTO st_parent (`idName` ,`idParent`) VALUES (:idName, :idParent');
+        $insertParent->execute(array(":idName"=>$dataElement["id"],":idParent"=>$parent["id"]));
+    }
 
-        $insertElement = $this->db->prepare('INSERT INTO st_elements (`name` ,`description` ,`level`) VALUES (:name, :description, :level');
-        $insertElement->execute(array(':name' => $element["name"], ':description' => $element["description"], ':level' => $element["level"]));
-
+    public function getElement($element){
+        $queryElement = $this->db->prepare('SELECT * FROM st_elements WHERE `name`=:nameElement');
+        $queryElement->execute(array(":nameElement"=>$element[":nameElement"]));
+        return $queryElement->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getTree(){
