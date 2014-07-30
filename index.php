@@ -24,7 +24,7 @@ if(isset($_POST["nameElement"])){
         $element[$key]=$value;
     }
 }
-//var_dump($element);
+
 
 if(isset($element[":nameElement"]) && $element[":nameElement"]!=" "){
     $storage->putElement($element);
@@ -32,5 +32,5 @@ if(isset($element[":nameElement"]) && $element[":nameElement"]!=" "){
 
 
 
-//var_dump($element);
+
 echo $page;
