@@ -26,11 +26,17 @@ class Form {
 
     public function getData(){
         $element=array();
+<<<<<<< HEAD
         $element[":parentElement"]=(isset($_POST["parentElement"]))?$_POST["parentElement"]:" ";
         $element[":nameElement"]=(isset($_POST["nameElement"]))?$_POST["nameElement"]:" ";
         $element[":descriptionElement"]=(isset($_POST["descriptionElement"]))?$_POST["descriptionElement"]:" ";
         $element[":level"]=null;
 
+=======
+        $element["level"]=(isset($_POST["parentElement"]))?$_POST["parentElement"]:" ";
+        $element["nameElement"]=(isset($_POST["nameElement"]))?$_POST["nameElement"]:" ";
+        $element["discriptionElement"]=(isset($_POST["discriptionElement"]))?$_POST["discriptionElement"]:" ";
+>>>>>>> origin/master
         return $element;
     }
 
