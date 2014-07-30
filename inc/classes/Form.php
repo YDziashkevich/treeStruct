@@ -12,11 +12,7 @@ class Form {
         $this->addElement=file_get_contents("./tpl/add.html");
     }
 
-
-
-
     public function getPage($array=array()){
-        var_dump($array);
         if($array!=null && $array["add"]=="add"){
             $this->parent=$array["parent"];
             $page=str_replace("{{CONTENT}}",$this->addElement,$this->mainPage);
@@ -28,13 +24,13 @@ class Form {
         }
     }
 
-    public function getData($level){
-        var_dump($this->parent);
+    public function getData(){
         $element=array();
-        $element["level"]=$this->parent;
-		(isset($_POST["parentElement"]))?$element["level"]=$_POST["parentElement"]:" ";
-        (isset($_POST["nameElement"]))?$element["nameElement"]=$_POST["nameElement"]:$element["nameElement"]=" ";
-        (isset($_POST["discriptionElement"]))?$element["discriptionElement"]=$_POST["discriptionElement"]:$element["discriptionElement"]=" ";
+        $element[":parentElement"]=(isset($_POST["parentElement"]))?$_POST["parentElement"]:" ";
+        $element[":nameElement"]=(isset($_POST["nameElement"]))?$_POST["nameElement"]:" ";
+        $element[":descriptionElement"]=(isset($_POST["descriptionElement"]))?$_POST["descriptionElement"]:" ";
+        $element[":level"]=null;
+
         return $element;
     }
 
