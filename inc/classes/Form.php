@@ -29,7 +29,7 @@ class Form {
         $element[":parentElement"]=(isset($_POST["parentElement"]))?$_POST["parentElement"]:" ";
         $element[":nameElement"]=(isset($_POST["nameElement"]))?$_POST["nameElement"]:" ";
         $element[":descriptionElement"]=(isset($_POST["descriptionElement"]))?$_POST["descriptionElement"]:" ";
-        $element[":level"]=null;
+        $element[":level"]=($element[":parentElement"]=="root")?0:null;
 
         return $element;
     }

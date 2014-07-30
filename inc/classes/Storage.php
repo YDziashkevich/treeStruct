@@ -4,7 +4,7 @@
 class Storage {
 
     private $db;
-    private $tree=array();
+    //private $tree=array();
 
     public function __construct($host="localhost", $dbName="tree_st", $user="root", $password=""){
         try{
@@ -40,8 +40,21 @@ class Storage {
     }
 
     public function getTree(){
-        $queryTree = $this->db->query('SELECT * FROM st_elements');
-        $this->tree=$queryTree->fetchAll(PDO::FETCH_ASSOC);
+        $queryTree = $this->db->query('SELECT st_elements.`id`, st_elements.`name`, st_parent.`idParent` FROM st_elements INNER JOIN st_parent WHERE st_elements.`id`=st_parent.`idName`');
+        return $queryTree->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getRootElements(){
+        $queryRootElements=$this->db->prepare('SELECT st_elements.`id`, st_elements.`name` FROM st_elements INNER JOIN st_parent
+        WHERE st_elements.`id`=st_parent.`idName` AND st_parent.`idParent` IS NULL');
+        return $queryRootElements->execute(PDO::FETCH_ASSOC);
+    }
+
+    public function getChild($parent){
+        $queryChild=$this->db->prepare('SELECT st_elements.`id`, st_elements.`name`, st_parent.`idParent` FROM st_elements INNER JOIN st_parent
+        WHERE st_elements.`id`=st_parent.`idName` AND st_parent.`idParent`=:parent');
+        $queryChild->bindParam(':parent',$parent,PDO::PARAM_INT);
+        return $queryChild->execute(PDO::FETCH_ASSOC);
     }
 
 } 
