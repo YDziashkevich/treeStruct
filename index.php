@@ -31,22 +31,44 @@ if(isset($element[":nameElement"]) && $element[":nameElement"]!=" "){
     $storage->putElement($element);
 }
 
-
-foreach($storage->getRootElements() as $item){
+/*
+foreach($storage->getRootElements() as $rootElement){
     $htmlTree="<ul>";
     $htmlTree.="<li>";
-    $htmlTree.="$item[name]";
+    $htmlTree.="$rootElement[name]";
     $htmlTree.="<ul>";
-    foreach($storage->getChild($item["name"]) as $item){
-
+    do{
+        $child=$storage->getChild($rootElement);
+    }while(!$child);
+    foreach($storage->getChild($rootElement) as $childElement){
 
     }
     $htmlTree.="</ul>";
     $htmlTree.="</li>";
     $htmlTree.="</ul>";
 }
+*/
 
 
+$html="";
+foreach($storage->getRootElements() as $rootElement){
+    $html.="<ul>";
+    $html.=$rootElement["name"];
+    $html.="<li>";
+    $child=$storage->getChild($rootElement["id"]);
+    if(!empty($child["id"])){
+        $html.="<ul>";
+        foreach($child as $newChild){
+            $html.="<li>";
+            $html.=$newChild["name"];
+            $html.=$storage->getChild($newChild["id"])["name"];
+            $html.="</li>";
+        }
+        $html.="</ul>";
+    }
+    $html.="</li>";
+    $html.="</ul>";
+}
 
 
 echo $page;

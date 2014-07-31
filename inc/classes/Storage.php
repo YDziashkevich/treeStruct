@@ -47,14 +47,16 @@ class Storage {
     public function getRootElements(){
         $queryRootElements=$this->db->prepare('SELECT st_elements.`id`, st_elements.`name` FROM st_elements INNER JOIN st_parent
         WHERE st_elements.`id`=st_parent.`idName` AND st_parent.`idParent` IS NULL');
-        return $queryRootElements->execute(PDO::FETCH_ASSOC);
+        $queryRootElements->execute();
+        return $queryRootElements->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getChild($parent){
         $queryChild=$this->db->prepare('SELECT st_elements.`id`, st_elements.`name`, st_parent.`idParent` FROM st_elements INNER JOIN st_parent
         WHERE st_elements.`id`=st_parent.`idName` AND st_parent.`idParent`=:parent');
         $queryChild->bindParam(':parent',$parent,PDO::PARAM_INT);
-        return $queryChild->execute(PDO::FETCH_ASSOC);
+        $queryChild->execute();
+        return $queryChild->fetchAll(PDO::FETCH_ASSOC);
     }
 
 } 
