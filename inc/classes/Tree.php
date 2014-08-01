@@ -2,4 +2,15 @@
 
 class Tree {
 
+    public function getTreeHtml(){
+
+
+
+
+
+
+
+
+    }
+
 } 
