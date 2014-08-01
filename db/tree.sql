@@ -26,11 +26,11 @@ CREATE TABLE `st_elements` (
   `description` varchar(255) DEFAULT NULL,
   `level` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8;
 
 /*Data for the table `st_elements` */
 
-insert  into `st_elements`(`id`,`name`,`description`,`level`) values (14,'ROOT 1',' ',NULL),(15,'root 2',' ',NULL),(16,'root 3',' ',NULL),(17,'root 4',' ',NULL),(18,'root 5',' ',NULL),(19,'root 6',' ',0),(20,'root 6',' ',0),(21,'root7',' ',0),(22,'root7',' ',0),(23,'root7',' ',0),(24,'root7',' ',0),(25,'root7',' ',0),(26,'root7',' ',0),(27,'root7',' ',0),(28,'dgdfg',' ',0),(29,'dgdfg',' ',0),(30,'dgdfg',' ',0);
+insert  into `st_elements`(`id`,`name`,`description`,`level`) values (14,'ROOT 1',' ',NULL),(15,'root 2',' ',NULL),(16,'root 3',' ',NULL),(17,'root 4',' ',NULL),(18,'root 5',' ',NULL),(55,'child root 5',' ',NULL),(56,'child root 1',' ',NULL),(57,'child root 2',' ',NULL),(58,'child root 2',' ',NULL),(59,'child root 2',' ',NULL),(60,'child root 2',' ',NULL),(61,'child root 4',' ',NULL),(62,'child root 2.2','xcv',NULL),(63,'child root 2.2.2','xcvx',NULL);
 
 /*Table structure for table `st_parent` */
 
@@ -41,15 +41,13 @@ CREATE TABLE `st_parent` (
   `idName` int(10) unsigned NOT NULL,
   `idParent` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `nameChild_idChild` (`idName`),
-  KEY `nameParent_idParent` (`idParent`),
-  CONSTRAINT `nameChild_idChild` FOREIGN KEY (`idName`) REFERENCES `st_elements` (`id`),
-  CONSTRAINT `nameParent_idParent` FOREIGN KEY (`idParent`) REFERENCES `st_elements` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+  KEY `parent_child` (`idParent`),
+  KEY `name` (`idName`)
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
 
 /*Data for the table `st_parent` */
 
-insert  into `st_parent`(`id`,`idName`,`idParent`) values (6,14,NULL),(7,15,NULL),(8,16,NULL),(9,17,NULL),(10,18,NULL),(11,19,NULL),(12,20,NULL),(13,21,NULL),(14,22,NULL),(15,23,NULL),(16,24,NULL),(17,25,NULL),(18,26,NULL),(19,27,NULL),(20,28,NULL),(21,29,NULL),(22,30,NULL);
+insert  into `st_parent`(`id`,`idName`,`idParent`) values (6,14,NULL),(7,15,NULL),(8,16,NULL),(9,17,NULL),(10,18,NULL),(47,55,18),(48,56,14),(49,57,15),(50,58,15),(51,59,15),(52,60,15),(53,61,17),(54,62,59),(55,63,62);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

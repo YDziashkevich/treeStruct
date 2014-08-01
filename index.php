@@ -11,6 +11,8 @@ $element=array();
 $page="";
 $array=array();
 $htmlTree="";
+$htmlSelect="";
+$addElement=false;
 
 
 if(!empty($_POST) && isset($_POST["newElement"]) && isset($_POST["parent"]) && $_POST["parent"]!=" "){
@@ -28,27 +30,8 @@ if(isset($_POST["nameElement"])){
 }
 
 if(isset($element[":nameElement"]) && $element[":nameElement"]!=" "){
-    $storage->putElement($element);
+    $addElement=$storage->putElement($element);
 }
-
-/*
-foreach($storage->getRootElements() as $rootElement){
-    $htmlTree="<ul>";
-    $htmlTree.="<li>";
-    $htmlTree.="$rootElement[name]";
-    $htmlTree.="<ul>";
-    do{
-        $child=$storage->getChild($rootElement);
-    }while(!$child);
-    foreach($storage->getChild($rootElement) as $childElement){
-
-    }
-    $htmlTree.="</ul>";
-    $htmlTree.="</li>";
-    $htmlTree.="</ul>";
-}
-*/
-
 
 
 foreach($storage->getRootElements() as $rootElement){
@@ -57,12 +40,12 @@ foreach($storage->getRootElements() as $rootElement){
     $htmlTree.="<li>";
     $htmlTree.=$rootElement["name"];
     $child=$storage->getChild($rootElement["id"]);
-    if(!empty($child["id"])){
-        $htmlT.="<ul>";
+    if(!empty($child[0]["id"])){
+        $htmlTree.="<ul>";
         foreach($child as $newChild){
             $htmlTree.="<li>";
             $htmlTree.=$newChild["name"];
-            $child=$storage->getChild($newChild["id"]);
+            $newChild=$storage->getChild($newChild[0]["id"]);
             $htmlTree.=$child["name"];
             $htmlTree.="</li>";
         }
@@ -73,12 +56,11 @@ foreach($storage->getRootElements() as $rootElement){
 }
 
 
-$htmlSelect="<select>";
 $level="-";
 foreach($storage->getRootElements() as $rootElement){
-    var_dump($rootElement["name"]);
+
     $child=array();
-    $htmlSelect.="<optin value='$rootElement[name]'>";
+    $htmlSelect.="<option value='$rootElement[name]'>";
     $htmlSelect.=$rootElement["name"];
     $htmlSelect.="</option>";/*
     $child=$storage->getChild($rootElement["id"]);
@@ -101,10 +83,16 @@ foreach($storage->getRootElements() as $rootElement){
 
     }*/
 }
-$htmlSelect.="</select>";
+
 
 $page=str_replace("{{TREE}}",$htmlTree,$page);
-$page=str_replace("{{SS}}",$htmlSelect,$page);
+$page=str_replace("{{SELECT}}",$htmlSelect,$page);
+
+if($addElement){
+    header('Location: '.$_SERVER['REQUEST_URI']);
+    exit();
+}
+
 
 
 echo $page;
