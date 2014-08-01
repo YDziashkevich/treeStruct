@@ -51,54 +51,36 @@ function generateTreeBranch(Storage $storage, $id){
 }
 
 foreach($storage->getRootElements() as $rootElement){
-    $child=array();
     $htmlTree.="<ul>";
     $htmlTree.="<li>";
     $htmlTree.=$rootElement["name"];
-
     $htmlTree .= generateTreeBranch($storage, $rootElement['id']);
-    if(!empty($child[0]["id"])){
-        $htmlTree.="<ul>";
-        foreach($child as $newChild){
-            $htmlTree.="<li>";
-            $htmlTree.=$newChild["name"];
-            $newChild=$storage->getChild($newChild[0]["id"]);
-            $htmlTree.=$child["name"];
-            $htmlTree.="</li>";
-        }
-        $htmlTree.="</ul>";
-    }
     $htmlTree.="</li>";
     $htmlTree.="</ul>";
 }
 
+function generateTreeSelect(Storage $storage, $id, $level="-"){
+    $children=$storage->getChild($id);
+    if(!is_array($children) || empty($children)){
+        return '';
+    }
+    $html = '';
+    foreach($children as $child){
+        $html .= "<option value='$child[name]'>";
+        $html .= $level.$child['name'];
+        $html .= "</option>";
+        $level.=$level."-";
+        $html .= generateTreeSelect($storage, $child['id'],$level);
+    }
+    return $html;
+}
 
-$level="-";
 foreach($storage->getRootElements() as $rootElement){
-
-    $child=array();
+    $htmlSelect.=$rootElement["name"];
     $htmlSelect.="<option value='$rootElement[name]'>";
     $htmlSelect.=$rootElement["name"];
-    $htmlSelect.="</option>";/*
-    $child=$storage->getChild($rootElement["id"]);
-    if(!empty($child["id"])){
-        $htmlSelect.="<option value='$child[name]'>";
-        $htmlSelect.=$level;
-        $htmlSelect.=$child["name"];
-        $htmlSelect.="</option>";
-        foreach($child as $newChild){
-            $htmlSelect.="<option value='$newChild[name]'>";
-            $htmlSelect.=$level;
-            $htmlSelect.=$newChild["name"];
-            $htmlSelect.="</option>";
-            $child=$storage->getChild($newChild["id"]);
-            $htmlSelect.="<option value='$child[name]'>";
-            $htmlSelect.=$level;
-            $htmlSelect.=$child["name"];
-            $htmlSelect.="</option>";
-        }
-
-    }*/
+    $htmlSelect.="</option>";
+    $htmlSelect .= generateTreeSelect($storage, $rootElement['id']);
 }
 
 

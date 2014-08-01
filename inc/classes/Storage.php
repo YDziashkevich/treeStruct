@@ -30,7 +30,7 @@ class Storage {
         $insertElement->execute(array(":nameElement"=>$element[":nameElement"], ":descriptionElement"=>$element[":descriptionElement"], ":level"=>$element[":level"]));
         $idElement=$this->db->lastInsertId();
         $insertParent = $this->db->prepare('INSERT INTO st_parent (`idName` ,`idParent`) VALUES (:idName, :idParent)');
-        $insertParent->execute(array(":idName"=>$idElement,":idParent"=>$parent["id"]));
+        return $insertParent->execute(array(":idName"=>$idElement,":idParent"=>$parent[0]["id"]));
     }
 
     public function getElement($element){
