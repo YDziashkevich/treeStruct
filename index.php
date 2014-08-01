@@ -33,7 +33,6 @@ if(isset($element[":nameElement"]) && $element[":nameElement"]!=" "){
     $addElement=$storage->putElement($element);
 }
 
-
 function generateTreeBranch(Storage $storage, $id){
     $children=$storage->getChild($id);
     if(!is_array($children) || empty($children)){
@@ -56,19 +55,19 @@ foreach($storage->getRootElements() as $rootElement){
     $htmlTree.="<ul>";
     $htmlTree.="<li>";
     $htmlTree.=$rootElement["name"];
-    $htmlTree .= generateTreeBranch($storage, $rootElement['id']);
 
-//    if(!empty($child[0]["id"])){
-//        $htmlTree.="<ul>";
-//        foreach($child as $newChild){
-//            $htmlTree.="<li>";
-//            $htmlTree.=$newChild["name"];
-//            $newChild=$storage->getChild($newChild[0]["id"]);
-//            $htmlTree.=$child["name"];
-//            $htmlTree.="</li>";
-//        }
-//        $htmlTree.="</ul>";
-//    }
+    $htmlTree .= generateTreeBranch($storage, $rootElement['id']);
+    if(!empty($child[0]["id"])){
+        $htmlTree.="<ul>";
+        foreach($child as $newChild){
+            $htmlTree.="<li>";
+            $htmlTree.=$newChild["name"];
+            $newChild=$storage->getChild($newChild[0]["id"]);
+            $htmlTree.=$child["name"];
+            $htmlTree.="</li>";
+        }
+        $htmlTree.="</ul>";
+    }
     $htmlTree.="</li>";
     $htmlTree.="</ul>";
 }
