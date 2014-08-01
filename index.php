@@ -50,25 +50,60 @@ foreach($storage->getRootElements() as $rootElement){
 */
 
 
-$html="";
+
 foreach($storage->getRootElements() as $rootElement){
-    $html.="<ul>";
-    $html.=$rootElement["name"];
-    $html.="<li>";
+    $child=array();
+    $htmlTree.="<ul>";
+    $htmlTree.="<li>";
+    $htmlTree.=$rootElement["name"];
     $child=$storage->getChild($rootElement["id"]);
     if(!empty($child["id"])){
-        $html.="<ul>";
+        $htmlT.="<ul>";
         foreach($child as $newChild){
-            $html.="<li>";
-            $html.=$newChild["name"];
-            $html.=$storage->getChild($newChild["id"])["name"];
-            $html.="</li>";
+            $htmlTree.="<li>";
+            $htmlTree.=$newChild["name"];
+            $child=$storage->getChild($newChild["id"]);
+            $htmlTree.=$child["name"];
+            $htmlTree.="</li>";
         }
-        $html.="</ul>";
+        $htmlTree.="</ul>";
     }
-    $html.="</li>";
-    $html.="</ul>";
+    $htmlTree.="</li>";
+    $htmlTree.="</ul>";
 }
+
+
+$htmlSelect="<select>";
+$level="-";
+foreach($storage->getRootElements() as $rootElement){
+    $child=array();
+    $htmlSelect.="<optin value='$rootElement[name]'>";
+    $htmlSelect.=$rootElement["name"];
+    $htmlSelect.="</option>";
+    $child=$storage->getChild($rootElement["id"]);
+    if(!empty($child["id"])){
+        $htmlSelect.="<option value='$child[name]'>";
+        $htmlSelect.=$level;
+        $htmlSelect.=$child["name"];
+        $htmlSelect.="</option>";
+        foreach($child as $newChild){
+            $htmlSelect.="<option value='$newChild[name]'>";
+            $htmlSelect.=$level;
+            $htmlSelect.=$newChild["name"];
+            $htmlSelect.="</option>";
+            $child=$storage->getChild($newChild["id"]);
+            $htmlSelect.="<option value='$child[name]'>";
+            $htmlSelect.=$level;
+            $htmlSelect.=$child["name"];
+            $htmlSelect.="</option>";
+        }
+
+    }
+}
+$htmlSelect.="</select>";
+
+$page=str_replace("{{TREE}}",$htmlTree,$page);
+$page=str_replace("{{SS}}",$htmlSelect,$page);
 
 
 echo $page;
