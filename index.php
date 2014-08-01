@@ -76,11 +76,18 @@ foreach($storage->getRootElements() as $rootElement){
 $htmlSelect="<select>";
 $level="-";
 foreach($storage->getRootElements() as $rootElement){
+<<<<<<< HEAD
     var_dump($rootElement["name"]);
     $child=array();
     $htmlSelect.="<optin value='$rootElement[name]'>";
     $htmlSelect.=$rootElement["name"];
     $htmlSelect.="</option>";/*
+=======
+    $child=array();
+    $htmlSelect.="<optin value='$rootElement[name]'>";
+    $htmlSelect.=$rootElement["name"];
+    $htmlSelect.="</option>";
+>>>>>>> origin/master
     $child=$storage->getChild($rootElement["id"]);
     if(!empty($child["id"])){
         $htmlSelect.="<option value='$child[name]'>";
@@ -99,7 +106,11 @@ foreach($storage->getRootElements() as $rootElement){
             $htmlSelect.="</option>";
         }
 
+<<<<<<< HEAD
     }*/
+=======
+    }
+>>>>>>> origin/master
 }
 $htmlSelect.="</select>";
 
